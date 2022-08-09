@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://corpore-app.arcoeducacao.com.br/",
+  "defaultCommandTimeout": 20000,
+  "viewportWidth": 1440,
+  "viewportHeight": 900
+}
