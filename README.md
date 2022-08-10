@@ -85,6 +85,7 @@ justifSaida2: "Saída",
 ### Quantidade de horas lançadas
 
 Será possível lançar caso possua as 4 horas e 4 justificativas preenchidas, ou seja, caso tente lançar apenas 2 horas e 2 justificativas ou 6 horas e 6 justificativas não funcionará.
+Não poderá ter lançamento de horas no ponto.
 
 ### Local onde deverá inserir os dados de login e senha
 
