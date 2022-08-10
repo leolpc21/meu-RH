@@ -1,4 +1,4 @@
-## Padroes de datas, horas e justificativas
+### Padroes de datas, horas e justificativas
 
 Datas no formato "DD/MM" entre aspas duplas no campo 'data:' dentro da const datas.
 
@@ -82,15 +82,15 @@ justifSaida2: "Saída",
 },
 ];
 
-#### Quantidade de horas lançadas
+### Quantidade de horas lançadas
 
 Será possível lançar caso possua as 4 horas e 4 justificativas preenchidas, ou seja, caso tente lançar apenas 2 horas e 2 justificativas ou 6 horas e 6 justificativas não funcionará.
 
-##### Local onde deverá inserir os dados de login e senha
+### Local onde deverá inserir os dados de login e senha
 
 Para que seja feita o login na plataforma, os dados deverão ser inseridos no arquivo cypress.env.json, nos respectivos campos: login, senha e deverá salvar o arquivo.
 
-###### Atalho para executar o lançamento
+### Atalho para executar o lançamento
 
 Para rodar no modo headless, executar o seguinte comando no terminal: npm run cy:run
 Para rodar em modo de interface gráfica, executar o seguinte comando no terminal: npx cypress open. Se for o primeiro acesso, ele irá instalar o cypress e abrir uma janela, após abertura da janela do cypress clicar em lancarPonto.spec.js
