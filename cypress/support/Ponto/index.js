@@ -2,8 +2,8 @@ import { elemento } from "./elementos";
 
 class Ponto {
   login(login, senha) {
-    cy.get(elemento.inputLogin).type(login);
-    cy.get(elemento.inputSenha).type(senha);
+    cy.get(elemento.inputLogin).type(login, { log: false });
+    cy.get(elemento.inputSenha).type(senha, { log: false });
     cy.intercept(
       "GET",
       "https://corpore-app.arcoeducacao.com.br/FrameHTML/rm/api/rest/timesheet/balanceSummary/**"
