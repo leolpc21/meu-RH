@@ -3,18 +3,13 @@
 import ponto from "../../support/Ponto";
 
 describe("Lançar horário de ponto no Meu RH", function () {
-  const user = {
-    login: "",
-    senha: "",
-  };
-
   const datas = [
     {
       data: "10/08",
       horaEntrada1: "07:00",
       horaSaida1: "12:00",
       horaEntrada2: "13:00",
-      horaSaida2: "16:00",
+      horaSaida2: "16:30",
       justifEntrada1: "Entrada",
       justifSaida1: "Saída Almoço",
       justifEntrada2: "Entrada Almoço",
@@ -24,7 +19,7 @@ describe("Lançar horário de ponto no Meu RH", function () {
 
   beforeEach(function () {
     cy.visit("/");
-    ponto.login(user.login, user.senha);
+    ponto.login(Cypress.env("login"), Cypress.env("senha"));
     ponto.menuEspelhoPonto();
   });
 
