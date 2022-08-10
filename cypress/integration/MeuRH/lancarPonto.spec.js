@@ -10,26 +10,15 @@ describe("Lançar horário de ponto no Meu RH", function () {
 
   const datas = [
     {
-      data: "09/08",
-      hora1: "07:30",
-      hora2: "12:30",
-      hora3: "13:30",
-      hora4: "16:30",
-      just1: "Entrada",
-      just2: "Saída Almoço",
-      just3: "Entrada Almoço",
-      just4: "Saída",
-    },
-    {
       data: "10/08",
-      hora1: "07:00",
-      hora2: "12:00",
-      hora3: "13:00",
-      hora4: "16:00",
-      just1: "Entrada",
-      just2: "Saída Almoço",
-      just3: "Entrada Almoço",
-      just4: "Saída",
+      horaEntrada1: "07:00",
+      horaSaida1: "12:00",
+      horaEntrada2: "13:00",
+      horaSaida2: "16:00",
+      justifEntrada1: "Entrada",
+      justifSaida1: "Saída Almoço",
+      justifEntrada2: "Entrada Almoço",
+      justifSaida2: "Saída",
     },
   ];
 
@@ -40,17 +29,17 @@ describe("Lançar horário de ponto no Meu RH", function () {
   });
 
   datas.forEach(function (dat) {
-    it("Lançar ponto data " + dat.data, () => {
+    it("Lançar ponto referente a data " + dat.data, () => {
       ponto.editarBatidaData(dat.data);
       ponto.adicionarBatidas(
-        dat.hora1,
-        dat.hora2,
-        dat.hora3,
-        dat.hora4,
-        dat.just1,
-        dat.just2,
-        dat.just3,
-        dat.just4
+        dat.horaEntrada1,
+        dat.horaSaida1,
+        dat.horaEntrada2,
+        dat.horaSaida2,
+        dat.justifEntrada1,
+        dat.justifSaida1,
+        dat.justifEntrada2,
+        dat.justifSaida2
       );
       ponto.botaoSalvar();
     });

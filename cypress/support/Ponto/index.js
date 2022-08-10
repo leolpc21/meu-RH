@@ -33,35 +33,44 @@ class Ponto {
     cy.contains(elemento.buttonEditarBatidas, "Editar batidas").click();
   }
 
-  adicionarBatidas(hora1, hora2, hora3, hora4, just1, just2, just3, just4) {
+  adicionarBatidas(
+    horaEntrada1,
+    horaSaida1,
+    horaEntrada2,
+    horaSaida2,
+    justifEntrada1,
+    justifSaida1,
+    justifEntrada2,
+    justifSaida2
+  ) {
     cy.contains(elemento.buttonAdicionarOutrasBatidas).click();
     cy.contains(elemento.painelBatidas, "Entrada 1")
       .find(elemento.inputHoras)
-      .type(hora1);
+      .type(horaEntrada1);
     cy.contains(elemento.painelBatidas, "Entrada 1")
       .find(elemento.inputJustificativa)
-      .type(just1);
+      .type(justifEntrada1);
     cy.contains(elemento.buttonAdicionarOutrasBatidas).click();
     cy.contains(elemento.painelBatidas, "Saída 1")
       .find(elemento.inputHoras)
-      .type(hora2);
+      .type(horaSaida1);
     cy.contains(elemento.painelBatidas, "Saída 1")
       .find(elemento.inputJustificativa)
-      .type(just2);
+      .type(justifSaida1);
     cy.contains(elemento.buttonAdicionarOutrasBatidas).click();
     cy.contains(elemento.painelBatidas, "Entrada 2")
       .find(elemento.inputHoras)
-      .type(hora3);
+      .type(horaEntrada2);
     cy.contains(elemento.painelBatidas, "Entrada 2")
       .find(elemento.inputJustificativa)
-      .type(just3);
+      .type(justifEntrada2);
     cy.contains(elemento.buttonAdicionarOutrasBatidas).click();
     cy.contains(elemento.painelBatidas, "Saída 2")
       .find(elemento.inputHoras)
-      .type(hora4);
+      .type(horaSaida2);
     cy.contains(elemento.painelBatidas, "Saída 2")
       .find(elemento.inputJustificativa)
-      .type(just4);
+      .type(justifSaida2);
   }
 
   botaoSalvar() {
