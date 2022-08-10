@@ -1,0 +1,20 @@
+{
+  "name": "testeautocypress",
+  "version": "1.0.0",
+  "description": "Projeto de testes automatizados para lançamento de ponto no Meu RH",
+  "main": "index.js",
+  "scripts": {
+    "cy:run": "cypress run"
+  },
+  "keywords": [
+    "cypress",
+    "automation",
+    "e2e"
+  ],
+  "author": "Leonardo Costa",
+  "license": "MIT",
+  "homepage": "https://github.com/leolpc21/meu-RH",
+  "devDependencies": {
+    "cypress": "^9.7.0"
+  }
+}
