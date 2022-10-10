@@ -5,12 +5,7 @@ import ponto from "../../support/Ponto";
 describe("Lançar horário de ponto no Meu RH", function () {
   const datas = [
     {
-      data: "10/10",
-    },
-  ];
-
-  const hrjus = [
-    {
+      data: "07/10",
       horaEntrada1: "07:00",
       horaSaida1: "12:15",
       horaEntrada2: "13:15",
@@ -28,22 +23,20 @@ describe("Lançar horário de ponto no Meu RH", function () {
     ponto.menuEspelhoPonto();
   });
 
-  datas.forEach(function (data) {
-    hrjus.forEach(function (hrjus) {
-      it("Lançar ponto referente a data " + data.data, () => {
-        ponto.editarBatidaData(data.data);
-        ponto.adicionarBatidas(
-          hrjus.horaEntrada1,
-          hrjus.horaSaida1,
-          hrjus.horaEntrada2,
-          hrjus.horaSaida2,
-          hrjus.justifEntrada1,
-          hrjus.justifSaida1,
-          hrjus.justifEntrada2,
-          hrjus.justifSaida2
-        );
-        ponto.botaoSalvar();
-      });
+  datas.forEach(function (dat) {
+    it("Lançar ponto referente a data " + dat.data, () => {
+      ponto.editarBatidaData(dat.data);
+      ponto.adicionarBatidas(
+        dat.horaEntrada1,
+        dat.horaSaida1,
+        dat.horaEntrada2,
+        dat.horaSaida2,
+        dat.justifEntrada1,
+        dat.justifSaida1,
+        dat.justifEntrada2,
+        dat.justifSaida2
+      );
+      ponto.botaoSalvar();
     });
   });
 });
