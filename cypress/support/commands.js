@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+/// <reference types="cypress" />
+
+Cypress.Commands.add("esperar", function (wait, status) {
+  cy.wait(`@${wait}`, { timeout: 90000 })
+    .its("response.statusCode")
+    .should("eq", status);
+});
+
+Cypress.on("uncaught:exception", () => {
+  // returning false here prevents Cypress from
+  // failing the test
+  return false;
+});
