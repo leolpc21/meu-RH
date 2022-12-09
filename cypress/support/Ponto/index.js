@@ -5,12 +5,12 @@ class Ponto {
     cy.get(elemento.inputLogin).type(login, { log: false });
     cy.get(elemento.inputSenha).type(senha, { log: false });
     cy.intercept(
-      "GET",
-      "https://corpore-app.arcoeducacao.com.br/FrameHTML/rm/api/rest/timesheet/balanceSummary/**"
-    ).as("carregarTela");
+      "POST",
+      "https://corpore-app.arcoeducacao.com.br/FrameHTML/rm/api/rest/auth/login"
+    ).as("login");
     cy.contains(elemento.buttonEntrar)
       .click()
-      .wait("@carregarTela", { timeout: 30000 });
+      .wait("@login", { timeout: 30000 });
   }
 
   menuEspelhoPonto() {
