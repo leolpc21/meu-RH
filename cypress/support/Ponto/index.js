@@ -1,27 +1,32 @@
 import { elemento } from "./elementos";
 
 class Ponto {
-  login(login, senha) {
-    cy.get(elemento.inputLogin).type(login, { log: false });
-    cy.get(elemento.inputSenha).type(senha, { log: false });
+  wait() {
     cy.intercept(
       "POST",
       "https://corpore-app.arcoeducacao.com.br/FrameHTML/rm/api/rest/auth/login"
     ).as("login");
-    cy.contains(elemento.buttonEntrar)
-      .click()
-      .wait("@login", { timeout: 30000 });
-  }
-
-  menuEspelhoPonto() {
-    cy.get(elemento.containerMenu).contains(elemento.menuPonto).click();
     cy.intercept(
       "GET",
       "https://corpore-app.arcoeducacao.com.br/FrameHTML/rm/api/rest/timesheet/clockings/**"
     ).as("carregarPeriodo");
+    cy.intercept(
+      "POST",
+      "https://corpore-app.arcoeducacao.com.br/FrameHTML/rm/api/rest/timesheet/clockings/**"
+    ).as("enviarHorarios");
+  }
+
+  login(login, senha) {
+    cy.get(elemento.inputLogin).type(login, { log: false });
+    cy.get(elemento.inputSenha).type(senha, { log: false });
+    cy.contains(elemento.buttonEntrar).click().esperar("login", 200);
+  }
+
+  menuEspelhoPonto() {
+    cy.get(elemento.containerMenu).contains(elemento.menuPonto).click();
     cy.contains(elemento.subMenuEspelhoPonto)
       .click()
-      .wait("@carregarPeriodo", { timeout: 30000 });
+      .esperar("carregarPeriodo", 200);
   }
 
   editarBatidaData(data) {
@@ -74,14 +79,10 @@ class Ponto {
   }
 
   botaoSalvar() {
-    cy.intercept(
-      "POST",
-      "https://corpore-app.arcoeducacao.com.br/FrameHTML/rm/api/rest/timesheet/clockings/**"
-    ).as("enviarHorarios");
     cy.contains(elemento.buttonSalvar)
       .click()
-      .wait("@enviarHorarios")
-      .wait("@carregarPeriodo");
+      .esperar("enviarHorarios", 200)
+      .esperar("carregarPeriodo", 200);
   }
 }
 
